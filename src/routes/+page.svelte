@@ -38,6 +38,13 @@
 	}
 </script>
 
+<svelte:head>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+		rel="stylesheet"
+	/>
+</svelte:head>
+
 <main>
 	<h1>Morty Mystery</h1>
 	<!-- <h1>Status : {status ? status : 'apples'}</h1> -->
