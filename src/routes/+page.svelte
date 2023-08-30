@@ -107,6 +107,9 @@
 </main>
 
 <style>
+	.start {
+		background-color: #303b5b;
+	}
 	main {
 		width: 100%;
 		max-width: 1200px;
