@@ -57,7 +57,7 @@
 		{/if}
 		{#if !charInfo}
 			{#if !loading}
-				<button on:click={getData}>Start</button>
+				<button class="start" on:click={getData}>Start</button>
 			{/if}
 		{:else}
 			<div class="characterCardContainer">
@@ -96,10 +96,10 @@
 					>
 				{:else}
 					<div>
-						<button on:click={() => statusHandler('ALIVE')}>Alive</button>
-						<button on:click={() => statusHandler('DEAD')}>Dead</button>
+						<button disabled={loading} on:click={() => statusHandler('ALIVE')}>Alive</button>
+						<button disabled={loading} on:click={() => statusHandler('DEAD')}>Dead</button>
 					</div>
-					<button on:click={() => statusHandler('UNKNOWN')}>Unknown</button>
+					<button disabled={loading} on:click={() => statusHandler('UNKNOWN')}>Unknown</button>
 				{/if}
 			</div>
 		{/if}
@@ -149,6 +149,8 @@
 	}
 	.container {
 		display: flex;
+		justify-content: center;
+		align-items: center;
 		height: 500px;
 	}
 
@@ -246,7 +248,6 @@
 			opacity: 1;
 		}
 	}
-
 	.characterCard > div {
 		display: flex;
 		flex-direction: column;
@@ -269,13 +270,6 @@
 	.characterCard > div > div:nth-child(3) > span:nth-child(1) {
 		color: #9b9da0;
 	}
-
-	/* .characterCard > div > div:nth-child(1) > div {
-		display: flex;
-		align-items: center;
-		gap: 10px;
-	} */
-
 	.characterCard > img {
 		height: 300px;
 		border-top-right-radius: 16px;
@@ -307,6 +301,90 @@
 		100% {
 			color: rgb(255, 120, 120);
 			/* opacity: 1; */
+		}
+	}
+	@media only screen and (max-width: 1150px) {
+		.buttonContainer > div {
+			flex-direction: column;
+			gap: 50px;
+		}
+		.buttonContainer {
+			width: 30%;
+		}
+	}
+	@media only screen and (max-width: 800px) {
+		.characterCardContainer {
+			width: 100%;
+		}
+		.container {
+			flex-direction: column;
+			gap: 60px;
+			height: fit-content;
+			min-height: 300px;
+		}
+		.buttonContainer > div {
+			flex-direction: row;
+			gap: 40px;
+		}
+		.buttonContainer {
+			width: fit-content;
+			height: 190px;
+			margin-bottom: 20px;
+		}
+		.buttonContainer button {
+			min-width: 0px;
+			font-size: 1rem;
+			width: 100px;
+			height: 50px;
+		}
+	}
+	@media only screen and (max-height: 850px) and (max-width: 650px) {
+		.characterCardContainer {
+			height: 400px;
+		}
+		.characterCard {
+			width: 250px;
+			min-height: 400px;
+		}
+		.characterCard img {
+			height: 250px;
+		}
+		.characterCard > div > div:nth-child(1) {
+			font-size: 1.3rem;
+		}
+	}
+	@media only screen and (max-height: 800px) and (max-width: 600px) {
+		main {
+			gap: 20px;
+		}
+		.characterCardContainer {
+			height: 400px;
+		}
+		.characterCard {
+			width: 200px;
+			min-height: 300px;
+		}
+		.characterCard img {
+			height: 200px;
+		}
+		.characterCard > div > div:nth-child(1) {
+			font-size: 1.3rem;
+		}
+	}
+	@media only screen and (max-height: 750px) and (max-width: 600px) {
+		.container {
+			gap: 20px;
+		}
+		.characterCard {
+			font-size: 0.8rem;
+		}
+		.characterCard > div > div:nth-child(1) {
+			font-size: 1rem;
+		}
+		.buttonContainer {
+			height: 180px;
+			gap: 20px;
+			margin-bottom: 5px;
 		}
 	}
 </style>
