@@ -161,7 +161,6 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		height: 500px;
 	}
 
 	.characterCardContainer {
@@ -329,8 +328,6 @@
 		.container {
 			flex-direction: column;
 			gap: 60px;
-			height: fit-content;
-			min-height: 300px;
 		}
 		.buttonContainer > div {
 			flex-direction: row;
@@ -350,7 +347,7 @@
 	}
 	@media only screen and (max-height: 850px) and (max-width: 650px) {
 		.characterCardContainer {
-			height: 400px;
+			min-height: 400px;
 		}
 		.characterCard {
 			width: 250px;
